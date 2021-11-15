@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.css";
+import AuthProvider from "./context/AuthProvider";
+import About from "./pages/About/About/About";
+import DashBoard from "./pages/DashBoard/DashBoard/DashBoard";
+import Home from "./pages/Home/Home/Home";
+import Login from "./pages/Login/Login/Login";
+import NotFound from "./pages/Shared/NotFound/NotFound";
+import Shop from "./pages/Shop/Shop/Shop";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <AuthProvider>
+                <Router>
+                    <Switch>
+                        <Route exact path="/">
+                            <Home />
+                        </Route>
+                        <Route path="/home">
+                            <Home />
+                        </Route>
+                        <Route path="/shop">
+                            <Shop />
+                        </Route>
+                        <Route path="/about">
+                            <About />
+                        </Route>
+                        <Route path="/dashboard">
+                            <DashBoard />
+                        </Route>
+                        <Route path="/login">
+                            <Login />
+                        </Route>
+                        <Route path="*">
+                            <NotFound />
+                        </Route>
+                    </Switch>
+                </Router>
+            </AuthProvider>
+        </div>
+    );
 }
 
 export default App;
