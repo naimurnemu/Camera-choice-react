@@ -1,0 +1,30 @@
+.banner-container {
+    position: relative;
+    /* margin: 0 auto; */
+}
+.banner-container img {
+    vertical-align: middle;
+}
+
+.banner-content {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    text-align: right;
+    background-image: linear-gradient(to right,
+        rgba(255, 0, 0, 0),
+        rgba(37, 36, 35, 0.7)
+    );
+    color: #f1f1f1;
+    width: 100%;
+}
+.fonts {
+    padding: 15% 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .fonts {
+      font-size: 28px !important;
+    }
+  }
+

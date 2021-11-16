@@ -1,0 +1,35 @@
+.box-container {
+    position: relative;
+    margin: 0 auto;
+    /* border: 2px solid gray; */
+    border-radius: 15px;
+}
+
+.box-container img{
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.text-container {
+    position: absolute;
+    top: 0;
+    background: rgba(76, 85, 67, 0.275);
+    background-image: linear-gradient(rgba(94, 76, 104, 0.844), rgba(125, 155, 211, 0.055));
+    color: #ffffff;
+    width: 100%;
+    padding: 10px 0px;
+    /* display: none; */
+}
+.text-container h5{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.text-container span{
+    font-size: 20px;
+}
+
+.box-container img:hover .text-container{
+    display: inline;
+}

@@ -30,7 +30,7 @@ const Header = () => {
         navItem: {
             color: "#fff",
             textDecoration: "none",
-            marginRight: "15px",
+            marginRight: "10px",
             fontWeight: 500,
             fontSize: "15px",
         },
@@ -62,7 +62,7 @@ const Header = () => {
     });
     const { navItem, navIcon, navItemContainer, navLogo, drawarItem } =
         useStyle();
-    console.log(user);
+
     // drawar Item list
     const list = (
         <Box
@@ -88,7 +88,7 @@ const Header = () => {
                 <ListItem button>
                     <ShoppingBagIcon />
                     <Link className={drawarItem} to="/shop">
-                        Explore Shop
+                        Shop
                     </Link>
                 </ListItem>
                 <Divider />
@@ -102,7 +102,7 @@ const Header = () => {
                 <ListItem button>
                     <Dashboard />
                     <Link className={drawarItem} to="/dashboard">
-                        Dash Board
+                        DashBoard
                     </Link>
                 </ListItem>
                 <Divider />
@@ -113,7 +113,7 @@ const Header = () => {
                             color="error"
                             variant="contained"
                         >
-                            Log out
+                            Logout
                         </Button>
                     ) : (
                         <Link className={drawarItem} to="/login">
@@ -131,7 +131,7 @@ const Header = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
             {/*---------- Navigation Bar----------- */}
-            <AppBar variant="elevation" position="static">
+            <AppBar variant="elevation" position="fixed">
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -162,7 +162,7 @@ const Header = () => {
                             Home
                         </Link>
                         <Link className={navItem} to="/shop">
-                            Explore Shop
+                            Shop
                         </Link>
                         <Link className={navItem} to="/about">
                             About Us
@@ -170,21 +170,26 @@ const Header = () => {
                         {user.email ? (
                             <>
                                 <Link className={navItem} to="/dashboard">
-                                    Dash Board
+                                    DashBoard
                                 </Link>
                                 <Link className={navItem} to="/">
                                     <Button
+                                        size="small"
                                         onClick={logOut}
                                         color="error"
-                                        variant="text"
+                                        variant="contained"
                                     >
-                                        Log out
+                                        Logout
                                     </Button>
                                 </Link>
                             </>
                         ) : (
                             <Link className={navItem} to="/login">
-                                <Button color="inherit" variant="outlined">
+                                <Button
+                                    size="small"
+                                    sx={{ bgcolor: "#fae8be", color: "black" }}
+                                    variant="outlined"
+                                >
                                     Login
                                 </Button>
                             </Link>
