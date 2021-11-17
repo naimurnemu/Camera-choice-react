@@ -30,16 +30,16 @@ const Header = () => {
         navItem: {
             color: "#fff",
             textDecoration: "none",
-            marginRight: "10px",
+            marginLeft: "16px",
             fontWeight: 500,
-            fontSize: "15px",
+            fontSize: "18px",
         },
 
         drawarItem: {
             color: "#000",
             textDecoration: "none",
             fontWeight: 500,
-            fontSize: "16px",
+            fontSize: "18px",
             margin: "5px 0",
         },
 
@@ -88,7 +88,7 @@ const Header = () => {
                 <ListItem button>
                     <ShoppingBagIcon />
                     <Link className={drawarItem} to="/shop">
-                        Shop
+                        Explore Shop
                     </Link>
                 </ListItem>
                 <Divider />
@@ -162,7 +162,7 @@ const Header = () => {
                             Home
                         </Link>
                         <Link className={navItem} to="/shop">
-                            Shop
+                            Explore Shop
                         </Link>
                         <Link className={navItem} to="/about">
                             About Us

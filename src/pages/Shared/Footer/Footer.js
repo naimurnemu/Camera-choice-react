@@ -21,6 +21,13 @@ const Footer = () => {
             textDecoration: "none",
             fontSize: "15px",
         },
+        footerItem2: {
+            color: "#faf5c5",
+            margin: "0",
+            padding: "5px",
+            textDecoration: "none",
+            fontSize: "15px",
+        },
         mediaIcon: {
             display: "inline-block",
             margin: "5px",
@@ -31,7 +38,7 @@ const Footer = () => {
         },
     });
 
-    const { footerItem, mediaIcon } = footerStyles();
+    const { footerItem, footerItem2, mediaIcon } = footerStyles();
     return (
         <Box
             component="div"
@@ -58,7 +65,7 @@ const Footer = () => {
                             prints. Best our customer supports.
                         </Typography>
                         <p style={{ margin: 0 }}>
-                            <Link className={footerItem} to="/reviews">
+                            <Link className={footerItem2} to="/reviews">
                                 Feedbacks & Reviews
                             </Link>
                         </p>

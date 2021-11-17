@@ -81,6 +81,8 @@ const AddProduct = () => {
 
                 <TextField
                     className={fieldStyle}
+                    multiline
+                    rows={3}
                     label="Write description"
                     {...register("description", { required: true })}
                 ></TextField>

@@ -2,6 +2,9 @@ import {
     getAuth,
     GoogleAuthProvider,
     signInWithPopup,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    updateProfile,
     onAuthStateChanged,
     signOut,
 } from "firebase/auth";
@@ -21,12 +24,46 @@ const useFirebase = () => {
 
     // sign in by google
     const googleProvider = new GoogleAuthProvider();
-    const signInWithGoogle = () => {
+    const signInWithGoogle = (location, history) => {
+        setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                setIsLoading(true);
                 setUser(result.user);
                 setError("");
+                const destination = location.state?.from || "/";
+                history.replace(destination);
+            })
+            .catch((issue) => setError(issue.message))
+            .finally(() => setIsLoading(false));
+    };
+
+    // Register by email and password
+    const registerUserWithEmail = (email, Password, name, history) => {
+        setIsLoading(true);
+        createUserWithEmailAndPassword(auth, email, Password)
+            .then((result) => {
+                setUser(result.user);
+                setError("");
+                //name update
+                updateProfile(auth.currentUser, {
+                    displayName: name,
+                })
+                    .then(() => {})
+                    .catch((issue) => setError(issue.message));
+            })
+            .catch((issue) => setError(issue.message))
+            .finally(() => setIsLoading(false));
+    };
+
+    // login user with google
+    const loginUserWithEmail = (email, password, location, history) => {
+        setIsLoading(true);
+        signInWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+                setUser(result.user);
+                setError("");
+                const destination = location.state?.from || "/";
+                history.replace(destination);
             })
             .catch((issue) => setError(issue.message))
             .finally(() => setIsLoading(false));
@@ -47,9 +84,9 @@ const useFirebase = () => {
 
     // logout
     const logOut = () => {
+        setIsLoading(true);
         signOut(auth)
             .then(() => {
-                setIsLoading(true);
                 setUser({});
                 setError("");
             })
@@ -62,6 +99,8 @@ const useFirebase = () => {
         isLoading,
         error,
         signInWithGoogle,
+        registerUserWithEmail,
+        loginUserWithEmail,
         logOut,
     };
 };
