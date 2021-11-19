@@ -1,4 +1,86 @@
 # Getting Started with Create React App
+This is a Website about camera shop. This shop name is Camera Choice. 
+In this website has 2 side.
+server side and Client side. 
+
+## Technologies: 
+### In Client side I use 
+1. react front end library. 
+2. react hook form for manage input. 
+3. axois for manage post data. 
+4. I use Firebase login system for registration and login. 
+5. For css I use Material UI react component library. 
+6. React Context api use for Private and admin route.
+7. React Router use to make Website a Single Page Application. 
+
+
+### In Sever Side I Use
+1. Express to manage node server. 
+2. I use Mongodb No SQL database. 
+3. Cors use for Http middle ware. 
+4. I use dotenv to handle environment file. 
+5. Crypto package use to handle delete of random orders. 
+
+## Web site Features: 
+This webside has 4 main route. In home page has 6 component. there are header, footer, homepage overview , feature products and and user feedback. Explore shop is showing all product. About us is info about shop and owner. And the dash board i do some complex section is there one Nesting route. 
+in there user can showing her review.. In admin pannel admin can add admin, delete product, update product, and all user orders. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

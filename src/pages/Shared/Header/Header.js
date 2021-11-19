@@ -172,7 +172,19 @@ const Header = () => {
                                 <Link className={navItem} to="/dashboard">
                                     DashBoard
                                 </Link>
-                               
+                                <Link
+                                    className={navItem}
+                                    to="/"
+                                >
+                                    <Button
+                                        size="small"
+                                        onClick={logOut}
+                                        color="error"
+                                        variant="contained"
+                                    >
+                                        Logout
+                                    </Button>
+                                </Link>
                             </>
                         ) : (
                             <Link className={navItem} to="/login">
