@@ -1,0 +1,21 @@
+[debug] [2021-11-19T08:43:22.757Z] ----------------------------------------------------------------------
+[debug] [2021-11-19T08:43:22.761Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-11-19T08:43:22.762Z] CLI Version:   9.20.0
+[debug] [2021-11-19T08:43:22.762Z] Platform:      win32
+[debug] [2021-11-19T08:43:22.762Z] Node Version:  v14.17.1
+[debug] [2021-11-19T08:43:22.763Z] Time:          Fri Nov 19 2021 14:43:22 GMT+0600 (Bangladesh Standard Time)
+[debug] [2021-11-19T08:43:22.764Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-11-19T08:43:22.775Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-11-19T08:43:22.776Z] > authorizing via signed-in user (naimurrahaman82@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  E:\JM_Boss_projects\Milestone-12\Web_Day_133-136(assignment)\camera-choice-react-client
+

@@ -109,12 +109,10 @@ const useFirebase = () => {
 
     // Admin Authorization
     useEffect(() => {
-        setIsLoading(true);
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`https://polar-dusk-85924.herokuapp.com/users/${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setAdmin(data.admin);
-                setIsLoading(false);
             });
     }, [user.email]);
 
@@ -123,16 +121,18 @@ const useFirebase = () => {
         const user = { email, displayName };
 
         // user post by Axios
-        axios.post("http://localhost:5000/users", user).then((res) => {
-            if (res?.data?.acknowledged) {
-            }
-        });
+        axios
+            .post("https://polar-dusk-85924.herokuapp.com/users", user)
+            .then((res) => {
+                if (res?.data?.acknowledged) {
+                }
+            });
     };
 
     // Store user Information by Google signIn
     const updateUser = (email, displayName) => {
         const user = { email, displayName };
-        fetch("http://localhost:5000/users", {
+        fetch("https://polar-dusk-85924.herokuapp.com/users", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -140,7 +140,9 @@ const useFirebase = () => {
             body: JSON.stringify(user),
         })
             .then((res) => res.json())
-            .then((data) => {});
+            .then((data) => {
+                console.log(data);
+            });
     };
 
     return {

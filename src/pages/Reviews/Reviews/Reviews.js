@@ -1,6 +1,5 @@
 import { Grid, Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import Footer from "../../Shared/Footer/Footer";
 import Header from "../../Shared/Header/Header";
 import likeDislike from "../../../images/likeDislike.svg";
 import AddReview from "../AddReview/AddReview";
@@ -10,10 +9,10 @@ const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     const [isClickd, setIsClicked] = useState(false);
     useEffect(() => {
-        fetch("http://localhost:5000/reviews")
+        fetch("https://polar-dusk-85924.herokuapp.com/reviews")
             .then((res) => res.json())
             .then((data) => setReviews(data));
-    }, [isClickd]);
+    }, []);
 
     return (
         <Box>

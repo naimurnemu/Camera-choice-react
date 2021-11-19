@@ -25,7 +25,7 @@ const AddToCart = () => {
     const { user } = useAuth();
 
     // Load spacific product
-    const url = `http://localhost:5000/product/${productId}`;
+    const url = `https://polar-dusk-85924.herokuapp.com/product/${productId}`;
     useEffect(() => {
         fetch(url)
             .then((res) => res.json())
@@ -50,7 +50,7 @@ const AddToCart = () => {
 
     // Order form handler
     const handleOrderSubmit = (event) => {
-        axios.post("http://localhost:5000/orders", orderData).then((res) => {
+        axios.post("https://polar-dusk-85924.herokuapp.com/orders", orderData).then((res) => {
             setIsClicked(true);
             if (res?.data?.cknowledged) {
                 setIsClicked(true);

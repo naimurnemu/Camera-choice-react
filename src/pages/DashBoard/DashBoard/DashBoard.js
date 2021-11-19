@@ -19,6 +19,7 @@ import ManageProducts from "../ManageProducts/ManageProducts";
 import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../Login/AdminRoute/AdminRoute";
 import AllOrders from "../AllOrders/AllOrders";
+import Pay from "../Pay/Pay";
 
 // drawar width size
 const drawerWidth = 200;
@@ -89,6 +90,19 @@ const DashBoard = (props) => {
                     to={`${url}/reviews`}
                 >
                     <Button color="inherit">User's Feedback</Button>
+                </Link>
+            </ListItem>
+            <ListItem>
+                <Link
+                    style={{
+                        textDecoration: "none",
+                        color: "black",
+                        fontSize: "18px",
+                        fontWeight: 600,
+                    }}
+                    to={`${url}/pay`}
+                >
+                    <Button color="inherit">Pay</Button>
                 </Link>
             </ListItem>
 
@@ -254,6 +268,9 @@ const DashBoard = (props) => {
                         </Route>
                         <Route exact path={`${path}/reviews`}>
                             <Reviews />
+                        </Route>
+                        <Route exact path={`${path}/pay`}>
+                            <Pay />
                         </Route>
                         <AdminRoute path={`${path}/makeAdmin`}>
                             <MakeAdmin />

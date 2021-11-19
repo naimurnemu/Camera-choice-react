@@ -23,7 +23,7 @@ const AddProduct = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        axios.post("http://localhost:5000/products", data).then((res) => {
+        axios.post("https://polar-dusk-85924.herokuapp.com/products", data).then((res) => {
             if (res?.data?.acknowledged) {
                 alert("New Product Added");
                 reset();

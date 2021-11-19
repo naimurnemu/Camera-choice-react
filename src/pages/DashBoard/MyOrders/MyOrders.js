@@ -16,7 +16,7 @@ const MyOrders = () => {
     const [myOrders, setMyOrders] = useState([]);
 
     // find user all orders
-    const url = `http://localhost:5000/orders/${user.email}`;
+    const url = `https://polar-dusk-85924.herokuapp.com/orders/${user.email}`;
     useEffect(() => {
         fetch(url)
             .then((res) => res.json())
@@ -27,7 +27,7 @@ const MyOrders = () => {
     const cancelOrder = (deleteId) => {
         const proceed = window.confirm("Are you want to Cancel Order?");
         if (proceed) {
-            const deleteUrl = `http://localhost:5000/order/${deleteId}`;
+            const deleteUrl = `https://polar-dusk-85924.herokuapp.com/order/${deleteId}`;
             fetch(deleteUrl, {
                 method: "DELETE",
             })

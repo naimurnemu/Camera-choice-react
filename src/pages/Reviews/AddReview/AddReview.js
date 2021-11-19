@@ -21,7 +21,7 @@ const AddReview = ({ reviews, setIsClicked, isClickd }) => {
 
     // review submit
     const handleReviewSubmit = (event) => {
-        axios.post("http://localhost:5000/reviews", reviewData).then((res) => {
+        axios.post("https://polar-dusk-85924.herokuapp.com/reviews", reviewData).then((res) => {
             if (res?.data?.acknowledged) {
                 alert("Thanks For Your Honest Review");
                 reviews.push(reviewData);

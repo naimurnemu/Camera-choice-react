@@ -16,7 +16,7 @@ const AllOrders = () => {
 
     // find all users orders
     useEffect(() => {
-        fetch("http://localhost:5000/orders")
+        fetch("https://polar-dusk-85924.herokuapp.com/orders")
             .then((res) => res.json())
             .then((data) => setAllOrders(data));
     }, []);
@@ -25,7 +25,7 @@ const AllOrders = () => {
     const handleDeleteOrder = (deleteId) => {
         const proceed = window.confirm("Confirm to Cancel Order?");
         if (proceed) {
-            fetch(`http://localhost:5000/order/${deleteId}`, {
+            fetch(`https://polar-dusk-85924.herokuapp.com/order/${deleteId}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())
