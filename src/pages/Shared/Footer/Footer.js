@@ -126,6 +126,11 @@ const Footer = () => {
                         </p>
                     </Grid>
                 </Grid>
+                <hr />
+                <p>
+                    &copy;
+                    <small>2021. All rights reserved by camera choice.</small>
+                </p>
             </Container>
         </Box>
     );

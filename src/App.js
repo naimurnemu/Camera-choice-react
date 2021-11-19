@@ -9,6 +9,7 @@ import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
 import Register from "./pages/Login/Register/Register";
 import Reviews from "./pages/Reviews/Reviews/Reviews";
 import NotFound from "./pages/Shared/NotFound/NotFound";
+import AddToCart from "./pages/Shop/AddToCart/AddToCart";
 import Shop from "./pages/Shop/Shop/Shop";
 
 function App() {
@@ -26,15 +27,19 @@ function App() {
                         <Route path="/shop">
                             <Shop />
                         </Route>
+                        <PrivateRoute path="/product/:productId">
+                            <AddToCart />
+                        </PrivateRoute>
                         <Route path="/about">
                             <About />
                         </Route>
-                        <Route path="/reviews">
+                        <PrivateRoute path="/reviews">
                             <Reviews />
-                        </Route>
+                        </PrivateRoute>
                         <PrivateRoute path="/dashboard">
                             <DashBoard />
                         </PrivateRoute>
+
                         <Route path="/login">
                             <Login />
                         </Route>

@@ -62,6 +62,7 @@ const Login = () => {
                         <Typography variant="h4" gutterBottom>
                             Please Login
                         </Typography>
+
                         {/* Loading for controll reload */}
                         {isLoading ? (
                             <div>
@@ -119,6 +120,9 @@ const Login = () => {
                         >
                             <GoogleIcon /> Google signIn
                         </Button>
+                        <br />
+                        <br />
+                        <br />
                     </Grid>
                 </Grid>
             </Container>

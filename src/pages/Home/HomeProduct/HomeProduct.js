@@ -12,15 +12,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const HomeProduct = ({ productOverview }) => {
-    const { img, title, price, sensor, spaciality, retio } = productOverview;
+    const { img, title, price, sensor, spaciality, retio, _id } =
+        productOverview || {};
     return (
         <Grid item xs={12} sm={6} md={4}>
             <Card sx={{ textAlign: "left" }}>
                 <CardActionArea>
-                    <CardMedia component="img" height="300" image={img} alt="Camera-Image" />
+                    <CardMedia
+                        component="img"
+                        sx={{ maxHeight: "300px" }}
+                        image={img}
+                        alt="Camera-Image"
+                    />
                     <CardContent>
                         <Typography gutterBottom variant="h6" component="div">
-                            {title.slice(0, 40)}
+                        {title.slice(0, 40)}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             &bull;&nbsp;&nbsp;{sensor}
@@ -30,7 +36,7 @@ const HomeProduct = ({ productOverview }) => {
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             &bull;&nbsp;&nbsp;{retio}
-                        </Typography>{" "}
+                        </Typography>
                         <Typography
                             variant="h6"
                             sx={{
@@ -45,7 +51,10 @@ const HomeProduct = ({ productOverview }) => {
                 </CardActionArea>
 
                 <CardActions>
-                    <Link style={{ textDecoration: "none" }}>
+                    <Link
+                        style={{ textDecoration: "none" }}
+                        to={`/product/${_id}`}
+                    >
                         <Button
                             sx={{
                                 padding: "10px 20px",

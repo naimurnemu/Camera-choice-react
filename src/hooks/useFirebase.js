@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
     getAuth,
     GoogleAuthProvider,
@@ -21,6 +22,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState("");
+    const [admin, setAdmin] = useState("");
 
     // sign in by google
     const googleProvider = new GoogleAuthProvider();
@@ -30,6 +32,10 @@ const useFirebase = () => {
             .then((result) => {
                 setUser(result.user);
                 setError("");
+                // store google user
+                const user = result.user;
+                updateUser(user.email, user.displayName);
+
                 const destination = location.state?.from || "/";
                 history.replace(destination);
             })
@@ -44,12 +50,19 @@ const useFirebase = () => {
             .then((result) => {
                 setUser(result.user);
                 setError("");
+                const newUser = { email, displayName: name };
+                setUser(newUser);
+
+                //store user function
+                storeUser(email, name);
+
                 //name update
                 updateProfile(auth.currentUser, {
                     displayName: name,
                 })
                     .then(() => {})
                     .catch((issue) => setError(issue.message));
+                history.replace("/home");
             })
             .catch((issue) => setError(issue.message))
             .finally(() => setIsLoading(false));
@@ -94,8 +107,45 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     };
 
+    // Admin Authorization
+    useEffect(() => {
+        setIsLoading(true);
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setAdmin(data.admin);
+                setIsLoading(false);
+            });
+    }, [user.email]);
+
+    // Store user Information by registration
+    const storeUser = (email, displayName) => {
+        const user = { email, displayName };
+
+        // user post by Axios
+        axios.post("http://localhost:5000/users", user).then((res) => {
+            if (res?.data?.acknowledged) {
+            }
+        });
+    };
+
+    // Store user Information by Google signIn
+    const updateUser = (email, displayName) => {
+        const user = { email, displayName };
+        fetch("http://localhost:5000/users", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+        })
+            .then((res) => res.json())
+            .then((data) => {});
+    };
+
     return {
         user,
+        admin,
         isLoading,
         error,
         signInWithGoogle,

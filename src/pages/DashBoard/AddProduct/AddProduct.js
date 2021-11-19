@@ -13,6 +13,8 @@ const AddProduct = () => {
     });
 
     const { fieldStyle } = inputStyles();
+
+    // post product by react hook form
     const {
         register,
         handleSubmit,
@@ -21,20 +23,18 @@ const AddProduct = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        axios
-            .post("http://localhost:5000/products", data)
-            .then((res) => {
-                if (res?.data?.acknowledged) {
-                    alert("New Product Added");
-                    reset();
-                }
-            });
+        axios.post("http://localhost:5000/products", data).then((res) => {
+            if (res?.data?.acknowledged) {
+                alert("New Product Added");
+                reset();
+            }
+        });
     };
 
     return (
         <Container>
             <Typography variant="h4" gutterBottom component="div">
-                Add A New Camera:
+                Add A New Camera Product:
             </Typography>
             <form className="row" onSubmit={handleSubmit(onSubmit)}>
                 <TextField
